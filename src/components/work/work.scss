@@ -1,0 +1,28 @@
+.work{
+    width: 100vw;
+    height: max-content;
+    background-color: #010101;
+    padding: 3rem 11rem;
+
+    .heading{
+        display: flex;
+        align-items: center;
+        p{
+            font-family: "Roobert-Regular";
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: white;
+            margin-left: 1rem;
+        }
+    }
+
+    .projects{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        grid-gap: 4rem;
+        margin-top: 5rem;
+    }
+}
