@@ -2,7 +2,7 @@
     width: 100vw;
     height: max-content;
     background-color: #010101;
-    padding: 3rem 11rem;
+    padding: 3rem 10rem;
 
     .heading{
         display: flex;
@@ -22,7 +22,17 @@
         grid-template-columns: repeat(2, 1fr);
         justify-content: center;
         align-items: center;
-        grid-gap: 4rem;
+        grid-gap: 5.8vw;
         margin-top: 5rem;
+        padding-bottom: 10vw;
+        .card:nth-child(even){
+            transform: translate3d(0,9.11vw,0);
+        }
     }
+
+    .work-motto{
+
+    }
+
 }
+
