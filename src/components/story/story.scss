@@ -1,0 +1,30 @@
+.story-section{
+    width: 100vw;
+    height: max-content;
+    padding: 3.125vw 10vw;
+    background-color: black;
+    display: flex;
+
+    .story-text{
+        // flex: 70%;
+        font-family: "Roobert-Regular";
+        color: #FFF8E2;
+        line-height: 3vw;
+        width: 50%;
+        h1{
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            font-size: 8.5vw;
+            margin-top: 5vw;
+            margin-bottom: 10vw;
+        }
+        p{
+            font-weight: 300;
+            font-size: 1.3vw;
+            letter-spacing: 0.05em;
+        }
+    }
+    // .story-img{
+    //     width: 100%;
+    // }
+}

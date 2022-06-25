@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* cursor: none; */
+  scroll-behavior: smooth;
 }
 
 html, html::before, html::after{
@@ -21,6 +23,7 @@ body {
   font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 a{

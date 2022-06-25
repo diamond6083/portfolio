@@ -37,7 +37,7 @@
         transform: translate(-50%,-50%);
         h1{
             font-family: "Roobert-Regular";
-            font-size: 3rem;
+            font-size: 3vw;
             letter-spacing: 0.1em;
             text-align: center;
         }
@@ -45,16 +45,19 @@
 
     .scroll-down{
         position: relative;
-        bottom: 5rem;
-        left: 10rem;
-        width: 5rem;
-        span:first-child{
+        bottom: 5vw;
+        left: 10vw;
+        width: 5vw;
+        .circle{
             position: absolute;
-            top: 2.05rem;
-            left: 2.35rem;
-        }
-        .check{
+            top: 0;
+            left: 0;
             animation: rotating 10s linear infinite;
+        }
+        .flash{
+            position: absolute;
+            top: 2.4vw;
+            left: 58%;
         }
     }
 

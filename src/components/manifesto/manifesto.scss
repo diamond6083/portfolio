@@ -2,7 +2,7 @@
     width: 100vw;
     height: 192vh;
     position: relative;
-    padding: 1rem;
+    padding: 1vw;
 
     .manifesto-bg{
         width: 100%;
@@ -50,6 +50,10 @@
             height: 36.90vw;
             transform: rotate(-5deg);
             padding-bottom: 2vw;
+            transition: transform .8s cubic-bezier(.19,1,.22,1);;
+            &:hover{
+                transform: rotate(2deg);
+            }
             img{
                 width: 100%;
                 height: 100%;
@@ -102,7 +106,6 @@
                 height: 100%;
                 display: block;
                 object-fit: cover;
-                z-index: 3;
                 position: absolute;
                 top: 0;
                 left: 0;

@@ -4,7 +4,7 @@ import './manifesto.scss'
 
 const ManifestoSection = () => {
     return (  
-       <div className='manifesto-section'>
+       <div className='manifesto-section' id='manifesto'>
             <div className="manifesto-bg"></div>
 
             <div className="digital-exp">

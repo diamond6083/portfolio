@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 3rem 10rem;
+    padding: 3.125vw 10vw;
     position: fixed;
     z-index: 10;
     transition: all 0.3s ease-out;
@@ -20,11 +20,20 @@
         a{
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: white;
-            font-weight: 300;
+            font-weight: 400;
             font-size: 0.73vw;
             letter-spacing: 0.2em;
-            margin-bottom: 1rem;
+            margin-bottom: 1vw;
             text-align: right;
+            cursor: pointer;
+        }
+        transition: color 1s ease-out;
+        &.active{
+            a{
+                color: black;
+                font-weight: 600;
+            }
+            transition: color 1s ease-out;
         }
     }
 }

@@ -14,10 +14,21 @@ export default {
             title: 'Title'
         },
         {
+            name: 'project_year',
+            type: 'number',
+            title: 'Project Year'
+        },
+        {
             name: 'projectDomain',
             type: 'string',
             title: 'Project Domain',
         },
+        {
+            name: 'projectRole',
+            type: 'string',
+            title: 'Project Role'
+        },
+
         {
             name: 'slug',
             type: 'slug',
@@ -35,6 +46,38 @@ export default {
             name: 'projectImage',
             type: 'image',
             title: 'Project Image',
+            options: {
+                hotspot: true
+            }
+        },
+        {
+            name: 'coverImage',
+            type: 'image',
+            title: 'Cover Image',
+            options: {
+                hotspot: true
+            }
+        },
+        {
+            name: 'variant_one',
+            type: 'image',
+            title: 'Variant 1',
+            options: {
+                hotspot: true
+            }
+        },
+        {
+            name: 'variant_two',
+            type: 'image',
+            title: 'Variant 2',
+            options: {
+                hotspot: true
+            }
+        },
+        {
+            name: 'variant_three',
+            type: 'image',
+            title: 'Variant 3',
             options: {
                 hotspot: true
             }
