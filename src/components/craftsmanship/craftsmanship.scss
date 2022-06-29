@@ -10,5 +10,7 @@
         height: 100%;
         display: block;
         object-fit: cover;
+        -webkit-clip-path: circle(8.5% at 50% 50%);
+        clip-path: circle(8.5% at 50% 50%);
     }
 }

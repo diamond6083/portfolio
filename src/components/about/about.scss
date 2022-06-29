@@ -4,17 +4,21 @@
     background-color: #010101;
     padding: 3.125vw 10vw;
 
-    .about-heading{
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 8.5vw;
-        font-weight: 700;
-        color: white;
-        letter-spacing: 0.05em;
-        -webkit-font-smoothing: antialiased;
+    .ab-heading{
         margin-bottom: 4vw;
         margin-top: 2vw;
+        overflow: hidden;
+        .about-heading{
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 8.5vw;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.05em;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            visibility: hidden;
+        }
     }
-
     .skills{
         font-family: 'Poppins', sans-serif;
         font-weight: 300;
@@ -26,6 +30,10 @@
         margin-bottom: 5vw;
         letter-spacing: 0.05em;
         list-style: none;
+        overflow: hidden;
+        li{
+            visibility: hidden;
+        }
     }
 
     .sub-heading{

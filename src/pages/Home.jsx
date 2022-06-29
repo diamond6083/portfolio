@@ -1,4 +1,3 @@
-
 import HeroSection from "../components/hero/hero";
 import WorkSection from "../components/work/work";
 import ManifestoSection from "../components/manifesto/manifesto";
@@ -7,13 +6,15 @@ import Craftsmanship from "../components/craftsmanship/craftsmanship";
 import StorySection from "../components/story/story";
 import ContactSection from "../components/contact/contact";
 
-const HomePage = () => {
+const HomePage = ({project, work}) => {
+
+
     return ( 
         <>
             <HeroSection/>
-            <WorkSection/>
+            <WorkSection projectData={project.data}/>
             <ManifestoSection/>
-            <AboutSection/>
+            <AboutSection workData={work.data} />
             <Craftsmanship/>
             <StorySection/>
             <ContactSection/>

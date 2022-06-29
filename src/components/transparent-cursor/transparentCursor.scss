@@ -1,0 +1,25 @@
+.transparent-cursor{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,.15);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200000;
+    transition: width 0.5s cubic-bezier(.19,1,.22,1), height 0.5s cubic-bezier(.19,1,.22,1);
+    mix-blend-mode: difference;
+
+    .cursor-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-family: "Roobert-Regular"; 
+        font-weight: 300;
+        letter-spacing: 0.05em;
+        color: white;
+        font-size: 0.9vw;
+        transform: translate(-50%,-50%);
+    }
+}

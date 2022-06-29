@@ -16,6 +16,10 @@
         left: 0;
     }
 
+    .overflow{
+        overflow: hidden;
+    }
+
     .digital-exp{
         position: relative;
         top: 0;
@@ -25,7 +29,8 @@
 
         .digi-text{
             flex: 50%;
-            h1{
+          
+            .digi-heading{
                 font-family: "Roobert-Regular";
                 font-size: 7vw;
                 font-weight: 600;
@@ -33,26 +38,38 @@
                 margin-bottom: 3vw;
                 letter-spacing: 0.08em;
                 line-height: 10vw;
+                opacity: 1;
+                overflow: hidden;
+                .wow{
+                    font-family: "Roobert-Regular";
+                    font-size: 7vw;
+                    font-weight: 600;
+                    color: white;
+                    letter-spacing: 0.08em;
+                    line-height: 10vw;
+                    opacity: 1;
+                    display: inline-block;
+                    visibility: hidden;
+                }
             }
-    
-            p{
+            .para{
                 font-family: 'DM Sans', sans-serif;
                 font-size: 1vw;
                 font-weight: 300;
                 color: white;
                 letter-spacing: 0.1em;
                 padding-left: 0.5vw;
+                visibility: hidden;
             }
         }
 
         .dig-img{
             width: 28vw;
             height: 36.90vw;
-            transform: rotate(-5deg);
             padding-bottom: 2vw;
             transition: transform .8s cubic-bezier(.19,1,.22,1);;
             &:hover{
-                transform: rotate(2deg);
+                transform: rotate(2deg) !important;
             }
             img{
                 width: 100%;
@@ -75,23 +92,27 @@
         .motto-text{
             flex: 50%;
             padding-left: 8vw;
-            h1{
+            .motto-text-section{
                 font-family: "Roobert-Regular";
-                font-size: 3vw;
+                font-size: 2.8vw;
                 font-weight: 400;
                 color: white;
                 margin-bottom: 4vw;
                 letter-spacing: 0.05em;
-                line-height: 5vw;
+                line-height: 2vw;
+                display: inline-block;
+                visibility: hidden;
             }
     
-            p{
+            .motto-para{
                 font-family: 'DM Sans', sans-serif;
                 font-size: 1.15vw;
                 font-weight: 300;
                 color: white;
                 letter-spacing: 0.1em;
                 line-height: 2vw;
+                visibility: hidden;
+                margin-top: 3vw;
             }
         }
 
@@ -113,8 +134,7 @@
             .pink-bg{
                 position: absolute;
                 top: 0;
-                left: -5%;
-                transform: rotate(-3deg);
+                left: 0;
             }
         }
     }

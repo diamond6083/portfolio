@@ -25,7 +25,7 @@ const Navbar = () => {
                 const entry = entries[0]
                 setContactVisible(entry.isIntersecting)
             },
-            { threshold: 0.35 })
+            { threshold: 0 })
             observer.observe(document.querySelector('#contact'))
         }
         

@@ -1,36 +1,16 @@
-import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
 
 import ProjectCard from "../projectCard/projectCard";
-import sanityClient from "../../client"
 
 import { IoIosArrowRoundForward } from "react-icons/io"
 
 import './work.scss'
 
-const transition = {duration: 1.4, ease: [0.43, 0.13, 0.23, 0.96]}
+const transition = {duration: 1, ease: [0.43, 0.13, 0.23, 0.96]}
 
-const WorkSection = () => {
-    const [projectData, setProjectData] = useState(null)
+const WorkSection = ({projectData}) => {
 
-    useEffect(() => {
-        sanityClient.fetch(
-            `*[_type == "project"] | order(projectNo) {
-                title,
-                slug,
-                projectDomain,
-                projectImage{
-                    asset->{
-                        _id,
-                        url
-                    }
-                }
-            }`
-        )
-        .then((data) => setProjectData(data))
-        .catch(console.error)
-    }, []);
     return ( 
         <div className="work" id="work">    
             <motion.div className="work-anim" exit=
@@ -48,7 +28,7 @@ const WorkSection = () => {
                             key={index} 
                             url = {project.projectImage.asset.url} 
                             title = {project.title}
-                            projectDomain = {project.projectDomain}
+                            projectRole = {project.projectRole}
                         />
                     </Link>
                 ))}

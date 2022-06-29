@@ -5,11 +5,21 @@
     margin-bottom: 5.73vw;
     filter: brightness(30%);
     transition: filter .8s cubic-bezier(.19,1,.22,1);
+    position: relative;
 
     &:hover{
         filter: brightness(100%);
     }
-    
+
+    .block{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 35vw;
+        height: 39vw;
+        background-color: black;
+    }
+
     .image-wrapper{
         overflow: hidden;
         width: 100%;
@@ -36,7 +46,7 @@
         display: block;
     }
 
-    .domain{
+    .role{
         font-family: "Roobert-Regular";
         letter-spacing: 0.05em;
         color: rgb(143, 143, 143);

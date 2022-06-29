@@ -1,20 +1,56 @@
+import { useLayoutEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import {gsap,Power3} from 'gsap/dist/gsap';
 
 import './manifesto.scss'
 
-
 const ManifestoSection = () => {
+    const[anim, setAnim] = useState(true)
+    const[anim2, setAnim2] = useState(true)
+    const [ref, inView] = useInView({threshold:0.2})
+    const [ref2, inView2] = useInView({threshold:0.2})
+    const [ref3, inView3] = useInView({threshold:0.2})
+    const [ref4, inView4] = useInView({threshold:0.2})
+    useLayoutEffect(() => { 
+        let tl = gsap.timeline({defaults:{ease: Power3.easeInOut}})
+        if(inView && inView2 && anim){
+        tl.fromTo('.wow',{autoAlpha:0,x:-100},
+                        {autoAlpha:1,x:0,stagger:{each:0.4} ,duration:1.2})
+        .fromTo('.para',{autoAlpha:0,skewY:8, y:70},
+                        {autoAlpha:1,y:0, skewY:0, duration:1.5},"-=0.7")
+        .to('.dig-img',{rotate:"-5deg", duration:0.4})
+        setAnim(false)
+        }
+    },[inView,inView2,anim])
+    useLayoutEffect(()=>{
+        let tl = gsap.timeline({defaults:{ease: Power3.easeInOut}})
+        if(inView3 && inView4 && anim2){
+            tl.fromTo('.motto-text-section',{autoAlpha:0,x:100},
+                            {autoAlpha:1,x:0,stagger:{each:0.4} ,duration:1.2})
+            .fromTo('.motto-para',{autoAlpha:0,skewY:8, y:100},
+                            {autoAlpha:1,y:0, skewY:0, duration:1.5},'-=1')
+            .to('.pink-bg',{rotate:'-5deg',x:'-7%',duration:0.7})
+            setAnim2(false)
+        }
+    },[inView3,inView4,anim2])
     return (  
        <div className='manifesto-section' id='manifesto'>
             <div className="manifesto-bg"></div>
 
             <div className="digital-exp">
                 <div className="digi-text">
-                    <h1>Building <br/>Digital <br/>Experience</h1>
-                    <p>Through exquisite and refined creative art</p>
+                    <div className='digi-heading' ref={ref2}>
+                        <p className='wow'>Building</p><br/>
+                        <p className='wow'>Digital</p><br/>
+                        <p className='wow'>Experience</p>
+                    </div>
+                    <div className='overflow' ref={ref}>
+                        <p className='para'>Through exquisite and refined creative art</p>
+                    </div>
                 </div>
                 
                 <div className="dig-img">
-                    <img src="https://i.ibb.co/P4MYffG/Digi-exp.png" alt="Digital Experience" />
+                    <img  src="https://i.ibb.co/P4MYffG/Digi-exp.png" alt="Digital Experience" />
                 </div>
             </div>
 
@@ -25,11 +61,14 @@ const ManifestoSection = () => {
                 </div>
 
                 <div className="motto-text">
-                    <h1>I am a designer, developer and digital 
-                        creator aiming to dwindle the gap 
-                        between design and technology.</h1>
-                    <p>My motto is to create, collaborate, and develop innovative 
-                        solutions that tether people and inspire communities.</p>
+                    <div className='motto-heading' ref={ref4}>
+                        <p className='motto-text-section'>I am a designer, developer and digital</p><br/>
+                        <p className='motto-text-section'>creator aiming to dwindle the gap </p><br/>
+                        <p className='motto-text-section'>between design and technology.</p>
+                    </div>
+                    <div className='overflow' ref={ref3}>
+                    <p className='motto-para'>My motto is to create, collaborate, and develop innovative 
+                        solutions that tether people and inspire communities.</p></div>
                 </div>
             </div>
 

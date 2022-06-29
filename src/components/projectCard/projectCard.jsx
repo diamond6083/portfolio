@@ -1,25 +1,33 @@
-import { motion } from 'framer-motion'
+import { useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 import './projectCard.scss'
 
-const transition = {duration: 1, ease: [0.6, 0.01, -0.05, 0.9]}
+const transition = {duration: 0.7, ease: [0.43, 0.13, 0.23, 0.96]}
 
-const variants = {
-    initial: {y:"50%", opacity: 0}, 
-    animate: {y:0, opacity:1, transition:{delay:0.2, ...transition}}
-}
+const ProjectCard = ({title,url,projectRole}) => {
+    const {ref, inView} = useInView({threshold:0.3})
+    const animation = useAnimation()
 
-const ProjectCard = ({title,url,projectDomain,index}) => {
+    useEffect(() => {
+        if(inView){
+           animation.start({
+            height: 0, transition:{...transition, ease:"easeInOut"}})
+        }
+        
+    },[inView])
+    
     return (
         <>
-            <div className="card">
+        
+            <div className="card"  >
+                <motion.div animate={animation} className='block' ref={ref}></motion.div>
                 <div  className="image-wrapper">
                     <img src={url} alt="Project thumbnail" />
                 </div>
-                <motion.span variants={variants} initial="initial" animate="animate" 
-                    className='title'>{title}</motion.span>
-                <motion.span variants={variants} initial="initial" animate="animate" 
-                    className='domain'>{projectDomain}</motion.span>
+                <span className='title'>{title}</span>
+                <span className='role'>{projectRole}</span>
             </div>
         </>
         
