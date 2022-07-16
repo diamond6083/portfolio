@@ -29,7 +29,7 @@ const ManifestoSection = () => {
                             {autoAlpha:1,x:0,stagger:{each:0.4} ,duration:1.2})
             .fromTo('.motto-para',{autoAlpha:0,skewY:8, y:100},
                             {autoAlpha:1,y:0, skewY:0, duration:1.5},'-=1')
-            .to('.pink-bg',{rotate:'-5deg',x:'-7%',duration:0.7})
+            .to('.pink-bg',{rotate:'-5deg',x:'-4%',duration:0.7})
             setAnim2(false)
         }
     },[inView3,inView4,anim2])

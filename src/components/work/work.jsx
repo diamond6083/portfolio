@@ -14,7 +14,9 @@ const WorkSection = ({projectData}) => {
     return ( 
         <div className="work" id="work">    
             <motion.div className="work-anim" exit=
-            {{height:"270vw", transition: transition}} > </motion.div> 
+            {{height:"100vh", transition: {delay:0.3,...transition}}} > </motion.div> 
+            <motion.div className="work-anim2" exit=
+            {{height:"100vh", transition: transition}} > </motion.div> 
             <div className="heading">
                 <IoIosArrowRoundForward color="white" />
                 <p>Projects in a flash</p>

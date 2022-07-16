@@ -1,5 +1,5 @@
 import { useEffect,useState} from "react";
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 
 import sanityClient from '../../client';
@@ -12,6 +12,9 @@ import './project-page.scss'
 const transition = {duration: 1, ease: [0.6, 0.01, -0.05, 0.9]}
 
 const ProjectSection = () => {
+    var navigate = useNavigate()
+    const [load, setLoad] = useState(true)
+    const [back, setBack] = useState(true)
     const [projectDetail, setProjectDetail] = useState(null)
     const { slug } = useParams()
     const [nextProject, setNextProject] = useState(null)
@@ -29,6 +32,16 @@ const ProjectSection = () => {
         ).then((data) => setNextProject(data[0]))
         .catch(console.error)
     }
+
+    const hideBack = (e) => {
+        if(e.wheelDeltaY < 0)
+            setBack(false)
+        else
+            setBack(true)
+    }
+
+    const Loading = () => setLoad(false)
+    const handleClick = () => navigate('/')
 
     useEffect(() => {
         sanityClient.fetch(
@@ -76,9 +89,39 @@ const ProjectSection = () => {
         }
     }, [projectDetail]);
 
+    useEffect(() => {
+        if(load){
+          window.addEventListener('load',Loading)
+          return () => window.removeEventListener('load',Loading)
+        }
+      }, []);
+
+    useEffect(() => {
+        window.addEventListener("wheel", hideBack)
+        return () => window.removeEventListener("wheel", hideBack)
+    }, []);
+
+
     return (
-        projectDetail && nextProject ? ( 
+        projectDetail && nextProject && load  ? ( 
+
         <div className="project-section" >
+
+            <motion.div className="work-anim" exit=
+                {{height:"100vh", transition: {delay:0.3,...transition}}} > 
+            </motion.div> 
+            <motion.div className="work-anim2" exit=
+                {{height:"100vh", transition: transition}} > 
+            </motion.div> 
+
+            <motion.div initial={{x:"-100%",opacity:0}}
+                animate={{
+                    x:0,opacity:1,
+                    transition: {delay:2, ...transition, duration:1.5, ease:'easeInOut'}
+                }} className = {back ? 'back' : 'back hidden'}  onClick = {handleClick}>
+                <p className="back-text">Back</p>
+            </motion.div>
+
             <motion.div animate={{height:0, 
             transition:{delay:0.1, duration:1.4,ease: [0.6, 0.01, -0.05, 0.9]}}}
             className="img-anim"></motion.div>
@@ -86,10 +129,10 @@ const ProjectSection = () => {
                     <img src={projectDetail.coverImage.asset.url} alt="cover-img" />
             </div>
             
-            <motion.div initial={{y:"50%"}}
+            <motion.div initial={{y:"50%",opacity:0}}
                 animate={{
-                    y:0,
-                    transition: {delay:1.1, ...transition, type:'spring'}
+                    y:0,opacity:1,
+                    transition: {delay:1.1, ...transition,ease:'easeInOut'}
                 }}
                 className='project-content'>
                 <motion.div initial={{ y:"100%", opacity:0}} 
@@ -117,9 +160,9 @@ const ProjectSection = () => {
                         <img src={projectDetail.variant_one.asset.url} alt="variant1" />
                     </div>
                 
-                        <div className='img-wrapper'>
-                            <img src={projectDetail.variant_two.asset.url} alt="variant2" />
-                        </div>
+                    <div className='img-wrapper'>
+                        <img src={projectDetail.variant_two.asset.url} alt="variant2" />
+                    </div>
                 </div>
 
                 <div className='big-variant'>

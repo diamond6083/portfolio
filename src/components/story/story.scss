@@ -4,6 +4,7 @@
     padding: 3.125vw 10vw;
     background-color: black;
     display: flex;
+    margin-bottom: 4vw;
 
     .story-text{
         // flex: 70%;
@@ -11,17 +12,22 @@
         color: #FFF8E2;
         line-height: 3vw;
         width: 50%;
-        h1{
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            font-size: 8.5vw;
-            margin-top: 5vw;
-            margin-bottom: 10vw;
+        margin-top: 5vw;
+        .story-heading{
+            margin-bottom: 6vw;
+            p{
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                font-size: 7vw;
+                visibility: hidden;
+                display: inline-block;
+            }
         }
         p{
             font-weight: 300;
             font-size: 1.3vw;
             letter-spacing: 0.05em;
+            visibility: hidden;
         }
     }
     // .story-img{

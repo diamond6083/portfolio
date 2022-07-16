@@ -11,7 +11,7 @@
         p{
             font-family: "Poppins";
             font-size: 0.8vw;
-            font-weight: 300;
+            font-weight: 600;
             letter-spacing: 0.05em;
             color: white;
             margin-left: 1vw;
@@ -24,17 +24,16 @@
         justify-content: center;
         align-items: center;
         grid-gap: 9vw;
-        margin-top: 5vw;
-        padding-bottom: 10vw;
-        .card:nth-child(even){
+        margin-top: 3vw;
+        padding: 2vw 10vw;
+        padding-top: 0;
+        a:nth-child(even){
             transform: translate3d(0,9.11vw,0);
-            margin-left: 2vw;
-            
         }
     }
 
-    .work-anim{
-        position: absolute;
+    .work-anim,.work-anim2{
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -43,6 +42,58 @@
         z-index: 5;
     }
 
+    .work-anim2{ 
+        z-index: 4; 
+        background-color: aliceblue;
+    }
+
 }
 
+@media screen and (max-width: 1200px){
+    .work{
+        .projects{
+            grid-gap: 3vw;
+            padding: 2vw 20vw;
+        }
+        .heading{
+            p{
+                font-size: 1.2vw;
+            }
+        }
+    }
+}
 
+@media screen and (max-width: 1030px){
+    .work{
+        .projects{
+            padding: 2vw 3vw;
+            grid-gap: 7vw;
+            grid-template-columns: repeat(1, 1fr);
+            a:nth-child(even){
+                transform: translate3d(0,0,0);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px){
+    .work{
+        padding: 3.125vw 7vw;
+        .heading{
+            p{
+                font-size: 1.7vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 580px){
+    .work{
+        .heading{
+            p{
+                font-size: 1.7vw;
+                letter-spacing: 0.1em;
+            }
+        }
+    }
+}

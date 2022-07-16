@@ -1,0 +1,44 @@
+.loader-bg{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    
+    .heading-container{
+        position: absolute;
+        width: max-content;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        user-select: none;
+        overflow: hidden;
+        p{
+            font-size: 5vw;
+            font-family: 'Anton', sans-serif;
+            display: inline-block;
+            color: #FFF8E2;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-right: 1vw;
+            visibility: hidden;
+        }
+    }
+    .para{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+        overflow: hidden;
+        p{
+            font-size: 1.2vw;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            word-spacing: 0.3em;
+            letter-spacing: 0.1em;
+            color: #FFF8E2;
+        }
+    }
+}

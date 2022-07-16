@@ -26,6 +26,8 @@
         left: 0;
         display: flex;
         padding: 4vw 6vw;
+        align-items: center;
+        justify-content: center;
 
         .digi-text{
             flex: 50%;
@@ -85,8 +87,9 @@
         position:absolute;
         top: 50%;
         left: 0;
-        // transform: translate(0,-70%);
         display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 4vw 6vw;
         
         .motto-text{
@@ -135,6 +138,200 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1350px){
+    .manifesto-section{
+        height: 150vh;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .manifesto-section{
+        height: 120vh;
+    }
+}
+
+@media screen and (max-width: 950px){
+    
+    .manifesto-section{
+        .digital-exp{
+            .digi-text{
+                .digi-heading{
+                    .wow{
+                        font-size: 9vw;
+                        line-height: 11vw;
+                    }
+                }
+                .para{
+                    font-size: 2vw;
+                }
+            }
+            .dig-img{
+                width: 32vw;
+                height: 43vw;
+                padding-bottom: 4vw;
+            }
+        }
+
+        .motto{
+            .motto-text{
+                .motto-text-section{
+                    font-size: 3.7vw;
+                    line-height: 5vw;
+                    margin-bottom: 3vw;
+                }
+                .motto-para{
+                    font-size: 2.5;
+                    margin-top: 2vw;
+                }
+            }
+            .motto-img{
+                width: 35vw;
+                height: 47vw;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 800px){
+    .manifesto-section{
+        height: 240vh;
+        .digital-exp{
+            flex-direction: column;
+            padding: 4vw 3vw;
+            justify-content: space-between;
+            .digi-text{
+                margin-bottom: 5vw;
+                .digi-heading{
+                    .wow{
+                        font-size: 11vw;
+                        line-height: 14vw;
+                    }
+                }
+            }
+            .dig-img{
+                width: 50vw;
+                height: 66.66vw;
+            }
+        }
+        .motto{
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%,0);
+            flex-direction: column-reverse;
+            padding: 4vw 3vw;
+            justify-content: space-between;
+            .motto-text{
+                margin-bottom: 10vw;
+                .motto-text-section{
+                    font-size: 4.4vw;
+                    line-height: 6vw;
+                }
+                .motto-para{
+                    font-size: 1.6vw;
+                }
+            }
+            .motto-img{
+                width: 50vw;
+                height: 66vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px){
+    .manifesto-section{
+        height: 250vh;
+        .digital-exp{
+            .digi-text{
+                .digi-heading{
+                    .wow{
+                        font-size: 13vw;
+                        line-height: 15vw;
+                    } 
+                }
+                .para{
+                    font-size: 2.5vw;
+                    margin-top: 5vw;
+                }
+            }
+            .dig-img{
+                width: 70vw;
+                height: 93vw;
+            }
+        }
+        .motto{
+            top: 48%;
+            .motto-text{
+                margin-bottom: 14vw;
+                .motto-text-section{
+                    font-size: 5vw;
+                    line-height: 7.5vw;
+                }
+                .motto-para{
+                    font-size: 2vw;
+                    line-height: 4vw;
+                }
+            }
+            .motto-img{
+                width: 70vw;
+                height: 93vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .manifesto-section{
+        height: 200vh;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .manifesto-section{
+        height: 190vh;
+        .digital-exp{
+            padding: 6vw 3vw;
+            .digi-text{
+                .digi-heading{
+                    .wow{
+                        font-size: 15vw;
+                        line-height: 18vw;
+                    } 
+                }
+                .para{
+                    font-size: 2.9vw;
+                    margin-top: 5vw;
+                }
+            }
+            .dig-img{
+                width: 80vw;
+                height: 107vw;
+            }
+        }
+        .motto{
+            top: 48%;
+            .motto-text{
+                margin-bottom: 22vw;
+                .motto-text-section{
+                    font-size: 6vw;
+                    line-height: 9vw;
+                }
+                .motto-para{
+                    margin-top: 3vw;
+                    font-size: 2.5vw;
+                    line-height: 4vw;
+                }
+            }
+            .motto-img{
+                width: 75vw;
+                height: 100vw;
             }
         }
     }

@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer'
 import { motion } from 'framer-motion'
 
 import {ReactComponent as ScrollCircle} from './ScrollCircle.svg'
-import {ReactComponent as FlashLogo} from './Flash.svg'
 
 import './hero.scss'
 
@@ -11,6 +10,8 @@ const variants = {
     initial: { y:'10vw', skewY:20, opacity:0},
     animate: { y:0, skewY:0, opacity:1}
 }
+
+
 const transition = {duration: 1, ease: [0.43, 0.13, 0.23, 0.96]}
 
 const HeroSection = () => {
@@ -47,10 +48,8 @@ const HeroSection = () => {
                     transition={transition}>Designer, Developer, Dreamer</motion.h1>
                 </div>    
 
-                <div className="scroll-down">
-                        <ScrollCircle className='circle' stroke='white' width={86}/>
-                        <span className="flash"><FlashLogo stroke='white' width={10}/></span>
-                </div>
+
+                <ScrollCircle className='circle' stroke='white' width={86}/>
 
             </div>
         </>

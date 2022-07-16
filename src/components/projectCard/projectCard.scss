@@ -15,8 +15,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 35vw;
-        height: 39vw;
+        width: 100%;
+        height: 100%;
         background-color: black;
     }
 
@@ -57,3 +57,61 @@
     }
 }
 
+@media screen and (max-width: 1200px){
+    .card{
+        width: 39vw;
+        height: 43vw;
+        .title{
+            font-size: 2vw;
+        }
+        .role{
+            font-size:1.4vw;
+        }
+    }
+}
+
+@media screen and (max-width: 1030px){
+    .card{
+        width: 75vw;
+        height: 84vw;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .card{
+        width: 80vw;
+        height: 89.5vw;
+        margin-bottom: 11vw;
+        .title{
+            font-size: 3vw;
+        }
+        .role{
+            font-size: 2vw;
+        }
+    }
+}
+
+@media screen and (max-width: 580px){
+    .card{
+        width: 90vw;
+        height: 101vw;
+        margin-bottom: 26vw;
+        .title{
+            font-size: 5vw;
+            margin-top: 6vw;
+        }
+        .role{
+            font-size: 3vw;
+            margin-top: 3vw;
+        }
+    }
+}
+
+@media screen and (max-width: 420px){
+    .card{
+        height: 110vw;
+        .role{
+            margin-top: 4vw;
+        }
+    }
+}
