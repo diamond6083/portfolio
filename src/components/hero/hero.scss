@@ -3,10 +3,21 @@
     width: 100vw;
     height: 100vh;
 
+    .hero-anim{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, .15); 
+        backdrop-filter: blur(5px);
+        z-index: 20;
+    }
+
     .hero-img{
         width: 100%;
         height: 100%;
-        background-image: url("https://i.ibb.co/qF9Bw2D/Hero-bg.jpg");
+        // background-image: url("https://i.ibb.co/qF9Bw2D/Hero-bg.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -128,6 +139,7 @@
         }
         .circle{
             left: 40%;
+            top: 120%;
         }
     }
 }

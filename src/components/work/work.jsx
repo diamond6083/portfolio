@@ -24,7 +24,7 @@ const WorkSection = ({projectData}) => {
             
             <div  
                 className="projects">
-                {projectData && projectData.map((project, index) => (
+                {projectData && projectData.slice(0,10).map((project, index) => (
                     <Link to={"/"+project.slug.current} key={project.slug.current}>
                         <ProjectCard 
                             key={index} 

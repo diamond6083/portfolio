@@ -4,7 +4,7 @@ import {gsap,Power3} from 'gsap/dist/gsap';
 
 import './craftsmanship.scss'
 
-const Craftsmanship = () => {
+const Craftsmanship = ({craftsUrl}) => {
     const [anim,setAnim] = useState(true)
     const [ref, inView] = useInView({threshold:0.5})
     useLayoutEffect(() => {
@@ -14,10 +14,11 @@ const Craftsmanship = () => {
             setAnim(false)
         }
     },[inView,anim])
+
     return ( 
         <div className='craftsmansip' id='craftsmanship' ref={ref}>
             <img className='craft-img' 
-                src="https://i.ibb.co/th6FTx3/Craftsmanship-showcase.png" 
+                src={craftsUrl}
                 alt="Craftsmanship"
             />
         </div>

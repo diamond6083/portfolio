@@ -65,10 +65,14 @@
         }
     }
 
+    #marquee{
+        font-size: 5vw;
+    }
+    
     .quinti{
         font-size: 5vw;      
         color: #FFF8E2;
-        margin-bottom: 3vw;
+        margin-bottom: 5vw;
         overflow: hidden;
         p{
             text-align: left;
@@ -111,6 +115,39 @@
             .text-card:nth-child(even){
                 transform: translate3d(0,0,0);
             }
+        }
+    }
+}
+
+@media screen and (max-width: 450px){
+    .about{
+        .ab-heading{
+            margin-bottom: 7vw;
+            .about-heading{
+                font-size: 13vw;
+            }
+        }
+        .skills{
+            font-size: 1.8vw;
+            li{
+                margin-right: 2.5vw;
+            }
+        }
+        .sub-heading{
+            font-size: 4.5vw;
+            margin-top: 10vw;
+            line-height: 8vw;
+        }
+        .work-motto{
+            margin-top: 15vw;
+        }
+
+        #marquee{
+            font-size: 10vw;
+        }
+        .quinti{
+            font-size: 7vw;
+            margin-bottom: 15vw;
         }
     }
 }

@@ -1,10 +1,12 @@
 import { useLayoutEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import {gsap,Power3} from 'gsap/dist/gsap';
 
 import './manifesto.scss'
 
-const ManifestoSection = () => {
+
+const ManifestoSection = ({manifestoData, manUrl, mottoUrl}) => {
     const[anim, setAnim] = useState(true)
     const[anim2, setAnim2] = useState(true)
     const [ref, inView] = useInView({threshold:0.2})
@@ -33,9 +35,12 @@ const ManifestoSection = () => {
             setAnim2(false)
         }
     },[inView3,inView4,anim2])
+
     return (  
        <div className='manifesto-section' id='manifesto'>
-            <div className="manifesto-bg"></div>
+            <div className="manifesto-bg" 
+                style={{backgroundImage:`url(${manUrl})`}}
+            ></div>
 
             <div className="digital-exp">
                 <div className="digi-text">
@@ -50,14 +55,18 @@ const ManifestoSection = () => {
                 </div>
                 
                 <div className="dig-img">
-                    <img  src="https://i.ibb.co/P4MYffG/Digi-exp.png" alt="Digital Experience" />
+                    <Link to={"/" + manifestoData[0].slug.current}>
+                    <img  src={manifestoData[0].projectImage.asset.url} alt="Digital Experience" />
+                    </Link>
                 </div>
             </div>
 
             <div className="motto">
                <div className="motto-img">
-                    <img className='pink-bg' src="https://i.ibb.co/3Tmb7N4/motto-pic-bg.png" alt="Motto bg" />
-                    <img src="https://i.ibb.co/Mks6ytG/Motto-pic.png" alt="Motto" />
+                    <img className='pink-bg' src={mottoUrl} alt="Motto bg" />
+                    <Link to={"/" + manifestoData[1].slug.current}>
+                    <img src={manifestoData[1].projectImage.asset.url} alt="Motto" />
+                    </Link>
                 </div>
 
                 <div className="motto-text">

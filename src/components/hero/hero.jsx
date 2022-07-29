@@ -8,13 +8,13 @@ import './hero.scss'
 
 const variants = {
     initial: { y:'10vw', skewY:20, opacity:0},
-    animate: { y:0, skewY:0, opacity:1}
+    animate: { y:0, skewY:0, opacity:1, delay:2.8}
 }
 
 
 const transition = {duration: 1, ease: [0.43, 0.13, 0.23, 0.96]}
 
-const HeroSection = () => {
+const HeroSection = ({heroUrl}) => {
     const {ref, inView} = useInView()
 
     const parallax = (e) => {
@@ -37,7 +37,14 @@ const HeroSection = () => {
     return(
         <>
             <div className="hero-section" id='hero'>
-                <div className="hero-img"></div>
+                <motion.div className="hero-anim" animate=
+                    {{height:0, skewY:0, transition: {...transition,duration:1.5}}} > 
+                </motion.div> 
+                <motion.div initial={{scale:2.5}}  
+                animate={{scale:1,transition:{...transition,delay:0.2}}} 
+                className="hero-img"
+                style={{backgroundImage:`url(${heroUrl})`}}
+                ></motion.div>
 
                 <div className="sphere" ref={ref}>
                     <img src="https://i.ibb.co/88z8TpG/Sphere.png" alt="sphere" />
@@ -48,8 +55,11 @@ const HeroSection = () => {
                     transition={transition}>Designer, Developer, Dreamer</motion.h1>
                 </div>    
 
-
-                <ScrollCircle className='circle' stroke='white' width={86}/>
+                <motion.div initial={{y:'30vh'}} 
+                animate={{y:0,transition:{...transition,duration:1.6,delay:1}}}>
+                    <ScrollCircle className='circle' stroke='white' width={86}/>
+                </motion.div>
+                
 
             </div>
         </>

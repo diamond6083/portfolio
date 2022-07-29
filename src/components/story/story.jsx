@@ -1,13 +1,13 @@
 import { useLayoutEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import {gsap,Power3,Power4} from 'gsap/dist/gsap';
+import {gsap,Power3} from 'gsap/dist/gsap';
 
 import './story.scss'
 
 const StorySection = () => {
     const [anim, setAnim] = useState(true)
     const [ref, inView] = useInView({threshold:0.6})
-
+    
     useLayoutEffect(() => {
         let tl = gsap.timeline({defaults:{ease: Power3.easeOut}})
         if(inView && anim){
@@ -16,7 +16,6 @@ const StorySection = () => {
             .fromTo('.story-body-text',{autoAlpha:0,y:100,skewX:-10},
                         {autoAlpha:1,y:0,skewX:0,duration:1},'-=0.6')
             setAnim(false)
-            return () => tl.kill()
         }
     },[inView])
     return (  

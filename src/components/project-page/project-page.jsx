@@ -1,6 +1,8 @@
-import { useEffect,useState} from "react";
+import { useEffect,useState, useLayoutEffect} from "react";
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer';
+import {gsap,Power3} from 'gsap/dist/gsap';
 
 import sanityClient from '../../client';
 
@@ -13,6 +15,10 @@ const transition = {duration: 1, ease: [0.6, 0.01, -0.05, 0.9]}
 
 const ProjectSection = () => {
     var navigate = useNavigate()
+    const [anim, setAnim] = useState(true)
+    const [anim2, setAnim2] = useState(true)
+    const [ref, inView] = useInView({threshold:0.2})
+    const [ref2, inView2] = useInView({threshold:0.2})
     const [load, setLoad] = useState(true)
     const [back, setBack] = useState(true)
     const [projectDetail, setProjectDetail] = useState(null)
@@ -21,7 +27,7 @@ const ProjectSection = () => {
     var proNo = 1
     
     const next = () => {
-        if(projectDetail.projectNo === 10)
+        if(projectDetail.projectNo === 12)
             proNo = 1
         else proNo = projectDetail.projectNo + 1
         sanityClient.fetch(
@@ -42,6 +48,24 @@ const ProjectSection = () => {
 
     const Loading = () => setLoad(false)
     const handleClick = () => navigate('/')
+
+    useLayoutEffect(() => { 
+        let tl = gsap.timeline({defaults:{ease: Power3.easeInOut}})
+        if(inView && anim){
+        tl.fromTo('.img-wrapper',{autoAlpha:0,y:100},
+                        {autoAlpha:1,y:0,stagger:{each:0.5} ,duration:1})
+        setAnim(false)
+        }
+    },[inView,anim])
+
+    useLayoutEffect(() => { 
+        let tl = gsap.timeline({defaults:{ease: Power3.easeInOut}})
+        if(inView2 && anim2){
+        tl.fromTo('.big-variant',{autoAlpha:0,y:200},
+                        {autoAlpha:1,y:0,duration:1})
+        setAnim2(false)
+        }
+    },[inView2,anim2])
 
     useEffect(() => {
         sanityClient.fetch(
@@ -132,7 +156,7 @@ const ProjectSection = () => {
             <motion.div initial={{y:"50%",opacity:0}}
                 animate={{
                     y:0,opacity:1,
-                    transition: {delay:1.1, ...transition,ease:'easeInOut'}
+                    transition: {delay:1.1, ...transition,ease:'easeInOut',type:'spring'}
                 }}
                 className='project-content'>
                 <motion.div initial={{ y:"100%", opacity:0}} 
@@ -155,7 +179,7 @@ const ProjectSection = () => {
                     <p className='project-role'>Role - {projectDetail.projectRole}</p>
                 </motion.div>
 
-                <div className="small-variants">
+                <div className="small-variants" ref={ref}>
                     <div className='img-wrapper'>
                         <img src={projectDetail.variant_one.asset.url} alt="variant1" />
                     </div>
@@ -165,7 +189,7 @@ const ProjectSection = () => {
                     </div>
                 </div>
 
-                <div className='big-variant'>
+                <div className='big-variant' ref={ref2}>
                     <img src={projectDetail.variant_three.asset.url} alt="variant3" />
                 </div>
 

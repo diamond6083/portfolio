@@ -7,7 +7,6 @@ import CustomCursor from "./components/custom-cursor";
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./pages/Home";
 import ProjectPage from "./pages/projectPage";
-import Loader from "./components/loader/loader";
 import PreLoader from "./components/preloader/preloader";
 
 function App() {
@@ -15,17 +14,21 @@ function App() {
   const [nav, setNav] = useState(false)
   const [load, setLoad] = useState(true)
   const [loading, setLoading] = useState(true)
+  const [touch, setTouch] = useState(false)
   const project = useFetch('project')
   const work = useFetch('work')
-
+  const misc = useFetch('misc')
+  
+  //Fetching project data and setting load state
   useEffect(() => {
-   if(project && work){
+   if(project && work && misc){
     setLoading(false)
    }else if(project.error || work.error){
     console.error(project.error, work.error)
    }
   }, []);
-
+  
+  // Disabling navbar in projects page
   useEffect(() => {
     const {pathname} = location
     if(pathname === '/')
@@ -36,6 +39,7 @@ function App() {
 
   const Loading = () => setLoad(false)
 
+  // Checking for entire app loading
   useEffect(() => {
     if(load){
       window.addEventListener('load',Loading)
@@ -43,16 +47,22 @@ function App() {
     }
   }, []);
 
+  //Checking touchscreen devices
+  useEffect(() => {
+    if(window.matchMedia("(pointer: coarse)").matches) {
+      setTouch(true)
+    }
+  },[])
+
   return (
     loading | load ? <PreLoader/> : 
     <div>
-      <CustomCursor/>
+      {!touch ? <CustomCursor/> : ''}
       {nav && <Navbar/>}
       <AnimatePresence  exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<HomePage project={project} work={work}/>} />
+          <Route path="/" element={<HomePage project={project} work={work} misc={misc} />} />
           <Route path="/:slug" element={<ProjectPage/>}/>
-          <Route path="/test" element={<PreLoader/>}/>
         </Routes>
       </AnimatePresence>
     </div>

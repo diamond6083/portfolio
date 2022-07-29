@@ -43,11 +43,50 @@ const useFetch = (name) => {
         }
     }
 
+    async function fetchMiscData(){
+        try{
+            const result = await sanityClient.fetch(
+                `*[_type == "misc"]{
+                    heroImg{
+                        asset->{
+                            _id,
+                            url
+                        }
+                    },
+                    manifestoImg{
+                        asset->{
+                            _id,
+                            url
+                        }
+                    },
+                    mottoImgBg{
+                        asset->{
+                            _id,
+                            url
+                        }
+                    },
+                    craftsManshipImg{
+                        asset->{
+                            _id,
+                            url
+                        }
+                    }
+                }`
+            )
+            setData(result)
+        }
+        catch(err){
+            setError(err)
+        }
+    }
+
     useEffect(() => {
         if(name === 'project')
             fetchProjectData()
         else if(name === 'work')
             fetchWorkData()
+        else if(name === 'misc')
+            fetchMiscData()
     }, [name]);
 
     return {data, error}

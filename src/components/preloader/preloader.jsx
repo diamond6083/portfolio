@@ -1,5 +1,5 @@
-import { useLayoutEffect, useState } from 'react';
-import {gsap,Power3,Power4} from 'gsap/dist/gsap';
+import { useLayoutEffect } from 'react';
+import {gsap,Power3} from 'gsap/dist/gsap';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import './preloader.scss'
@@ -32,7 +32,6 @@ const PreLoader = () => {
         .fromTo('.para p',{autoAlpha:0,y:50,skewY:10},
         {autoAlpha:1,y:0,skewY:0,duration:0.8})
 
-        // return () => tl.kill()
     },[])
     return ( 
         <AnimatePresence exitBeforeEnter>

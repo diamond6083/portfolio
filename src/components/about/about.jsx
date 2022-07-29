@@ -28,7 +28,6 @@ const AboutSection = ({workData}) => {
                         {autoAlpha:1,x:0,stagger:{each:0.3} ,duration:0.5},'-=1')
             setAnim(false)
         }
-        return () => tl.kill()
     },[inView])
 
     // Magnum Opus animation
@@ -39,7 +38,6 @@ const AboutSection = ({workData}) => {
                     {autoAlpha:1,y:0,skewY:0,stagger:{each:0.5} ,duration:1})
             setAnim3(false)
         }
-        return () => tl1.kill()
     },[inView3])
 
     // Motto-quote animation 1
@@ -54,7 +52,6 @@ const AboutSection = ({workData}) => {
                         {autoAlpha:1,y:0,skewY:0,duration:1})
             setAnim2(false)
         }
-        return () => tl.kill()
     },[inView2])
 
     //Quintissential heading animation
@@ -65,7 +62,6 @@ const AboutSection = ({workData}) => {
             {autoAlpha:1,y:0,skewY:0,stagger:{each:0.4} ,duration:0.9})
             setAnim4(false)
         }
-        return () => tl.kill()
     },[inView4])
 
     return ( 
@@ -96,8 +92,8 @@ const AboutSection = ({workData}) => {
             </div>
             
             <marquee className='about-heading' 
+                id='marquee'
                 style={{color:'#FFF8E2',
-                fontSize:'5vw',
                 textAlign:'center',
                 fontFamily:'Roobert-Regular'}}
                 behavior="scroll" direction="left" scrollamount="17"

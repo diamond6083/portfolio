@@ -134,3 +134,65 @@
     }
 }
 
+@media screen and (max-width: 1000px){
+    .contact{
+        .contact-heading{
+            margin: 3vw 0;
+            h1{
+                font-size: 10vw;
+            }
+        }
+        .contact-text{
+            p{
+                font-size: 1.5vw;
+            }
+        }
+        .conversation{
+            font-size: 1.5vw;
+            margin-bottom: 5vw;
+        }
+        .email-link{
+            font-size: 3vw;
+        }
+        .footer{
+            .navigate,.follow{
+                .footer-header{
+                    font-size: 1.4vw;
+                }
+                a{
+                    font-size: 4vw;
+                }
+            }
+           
+        }
+        .year{
+            font-size: 1.2vw;
+        }
+    }
+}
+
+@media screen and (max-width: 550px){
+    .contact{
+        .conversation{
+            font-size: 2.3vw;
+            margin-bottom: 5vw;
+        }
+        .footer{
+            margin-top: 10vw;
+            flex-direction: column;
+            .navigate,.follow{
+                margin-bottom: 5vw;
+                .footer-header{
+                    font-size: 3vw;
+                }
+                a{
+                    font-size: 6vw;
+                }
+            }
+           
+        }
+        .year{
+            font-size: 2.2vw;
+        }
+    }
+}

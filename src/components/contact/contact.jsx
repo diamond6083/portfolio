@@ -24,7 +24,6 @@ const ContactSection = () => {
                         {autoAlpha:1,x:0,duration:0.9},'-=0.5')
             setAnim(false)
         }
-        return () => tl.kill()
     },[inView])
 
     useLayoutEffect(() => {
@@ -36,7 +35,6 @@ const ContactSection = () => {
                         {autoAlpha:1,y:0,stagger:{each:0.3},duration:1.2},'-=0.8')
             setAnim2(false)
         }
-        return () => tl.kill()
     },[inView2])
     return ( 
         <div className='contact' id="contact">
