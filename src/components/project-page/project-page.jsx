@@ -1,4 +1,4 @@
-import { useEffect,useState, useLayoutEffect} from "react";
+import { useEffect,useState, useLayoutEffect, useRef} from "react";
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer';
@@ -10,6 +10,7 @@ import { IoIosArrowRoundForward } from "react-icons/io"
 import Loader from "../loader/loader";
 
 import './project-page.scss'
+import PreLoader from "../preloader/preloader";
 
 const transition = {duration: 1, ease: [0.6, 0.01, -0.05, 0.9]}
 
@@ -19,11 +20,11 @@ const ProjectSection = () => {
     const [anim2, setAnim2] = useState(true)
     const [ref, inView] = useInView({threshold:0.2})
     const [ref2, inView2] = useInView({threshold:0.2})
-    const [load, setLoad] = useState(true)
     const [back, setBack] = useState(true)
     const [projectDetail, setProjectDetail] = useState(null)
     const { slug } = useParams()
     const [nextProject, setNextProject] = useState(null)
+
     var proNo = 1
     
     const next = () => {
@@ -46,7 +47,6 @@ const ProjectSection = () => {
             setBack(true)
     }
 
-    const Loading = () => setLoad(false)
     const handleClick = () => navigate('/')
 
     useLayoutEffect(() => { 
@@ -107,19 +107,14 @@ const ProjectSection = () => {
         
     }, [slug]);
 
+    // Fetching Next project details
     useEffect(() => {
         if(projectDetail){
             next()
         }
     }, [projectDetail]);
 
-    useEffect(() => {
-        if(load){
-          window.addEventListener('load',Loading)
-          return () => window.removeEventListener('load',Loading)
-        }
-      }, []);
-
+    // Hiding back button on scroll  
     useEffect(() => {
         window.addEventListener("wheel", hideBack)
         return () => window.removeEventListener("wheel", hideBack)
@@ -127,7 +122,7 @@ const ProjectSection = () => {
 
 
     return (
-        projectDetail && nextProject && load  ? ( 
+        projectDetail && nextProject ? ( 
 
         <div className="project-section" >
 

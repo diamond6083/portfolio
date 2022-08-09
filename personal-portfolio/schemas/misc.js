@@ -34,6 +34,22 @@ export default {
             options: {
                 hotspot: true
             }
+        },
+        {
+            name: 'storyImg1',
+            title: 'Story Image 1',
+            type: 'image',
+            options: {
+                hotspot: true
+            }
+        },
+        {
+            name: 'storyImg2',
+            title: 'Story Image 2',
+            type: 'image',
+            options: {
+                hotspot: true
+            }
         }
     ]
 }

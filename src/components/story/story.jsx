@@ -1,13 +1,16 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {gsap,Power3} from 'gsap/dist/gsap';
+import hoverEffect from 'hover-effect'
 
 import './story.scss'
 
-const StorySection = () => {
+const StorySection = ({story1, story2}) => {
     const [anim, setAnim] = useState(true)
     const [ref, inView] = useInView({threshold:0.6})
+
     
+    // Story text animation
     useLayoutEffect(() => {
         let tl = gsap.timeline({defaults:{ease: Power3.easeOut}})
         if(inView && anim){
@@ -18,6 +21,20 @@ const StorySection = () => {
             setAnim(false)
         }
     },[inView])
+
+
+    // Dispersion hover effect
+    useEffect(() => {
+        var image_animate = new hoverEffect({
+            parent: document.querySelector('#frame-1'),
+            intensity: 0.3,
+            imagesRatio: 1,
+            image1: story1,
+            image2: story2,
+            displacementImage: 'https://i.ibb.co/dK0dfSn/overlay.png'
+        })
+    }, []);
+
     return (  
        <div className='story-section' id='story'>
             <div className="story-text">
@@ -33,7 +50,8 @@ const StorySection = () => {
                     digital experiences.
                 </p>
             </div>
-            <div className="story-img">Hello</div>
+            
+            <div className="story-img" id='frame-1'></div>
        </div> 
     );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom"; 
 import { AnimatePresence } from "framer-motion";
+
 import useFetch from "./fetchData";
 
 import CustomCursor from "./components/custom-cursor";
@@ -12,13 +13,12 @@ import PreLoader from "./components/preloader/preloader";
 function App() {
   const location = useLocation()
   const [nav, setNav] = useState(false)
-  const [load, setLoad] = useState(true)
   const [loading, setLoading] = useState(true)
   const [touch, setTouch] = useState(false)
   const project = useFetch('project')
   const work = useFetch('work')
   const misc = useFetch('misc')
-  
+
   //Fetching project data and setting load state
   useEffect(() => {
    if(project && work && misc){
@@ -37,15 +37,6 @@ function App() {
       setNav(false)
   }, [location]);
 
-  const Loading = () => setLoad(false)
-
-  // Checking for entire app loading
-  useEffect(() => {
-    if(load){
-      window.addEventListener('load',Loading)
-      return () => window.removeEventListener('load',Loading)
-    }
-  }, []);
 
   //Checking touchscreen devices
   useEffect(() => {
@@ -55,7 +46,7 @@ function App() {
   },[])
 
   return (
-    loading | load ? <PreLoader/> : 
+    loading ? <PreLoader/> : 
     <div>
       {!touch ? <CustomCursor/> : ''}
       {nav && <Navbar/>}
@@ -65,6 +56,7 @@ function App() {
           <Route path="/:slug" element={<ProjectPage/>}/>
         </Routes>
       </AnimatePresence>
+      
     </div>
   );
 }

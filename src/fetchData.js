@@ -70,6 +70,18 @@ const useFetch = (name) => {
                             _id,
                             url
                         }
+                    },
+                    storyImg1{
+                        asset->{
+                            _id,
+                            url
+                        }
+                    },
+                    storyImg2{
+                        asset->{
+                            _id,
+                            url
+                        }
                     }
                 }`
             )

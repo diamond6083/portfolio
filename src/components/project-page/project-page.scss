@@ -255,10 +255,11 @@
     .project-section{
         .back{
             top: -2%;
-            width: 18vw;
-            height: 18vw;
+            left: -7%;
+            width: 24vw;
+            height: 24vw;
             .back-text{
-                font-size: 1.7vw;
+                font-size: 2.6vw;
             }
         }
         .project-content{
@@ -308,10 +309,14 @@
 @media screen and (max-width: 420px){
     .project-section{
         .back{
+            width: 27vw;
+            height: 27vw;
             top: -1.5%;
+            left: -8%;
             .back-text{
-                font-size: 2vw;
-                letter-spacing: 0.2em;
+                font-size: 3.4vw;
+                letter-spacing: 0.1em;
+                top: 50%;
             }
         }
         .project-content{

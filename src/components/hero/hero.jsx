@@ -47,22 +47,33 @@ const HeroSection = ({heroUrl}) => {
                 ></motion.div>
 
                 <div className="sphere" ref={ref}>
-                    <img src="https://i.ibb.co/88z8TpG/Sphere.png" alt="sphere" />
+                    <img src="https://i.ibb.co/wYyVXGd/Hero-sphere.png" alt="sphere" />
                 </div>
 
                 <div className="content">
-                    <motion.h1 variants={variants} initial="initial" animate="animate" 
-                    transition={transition}>Designer, Developer, Dreamer</motion.h1>
+                <motion.div variants={variants} initial='initial' animate='animate' 
+                className="words">
+                    <span className='word'>Mystical, Marvelous </span>
+                    <span className='word special'>
+                        Des<em>i</em>gner, Deve<em>l</em>oper, Drea<em>m</em>er</span>
+                    <span className='word'>
+                        D<em>i</em>g<em>i</em>tal Exper<em>i</em>ence, Engag<em>i</em>ng Content
+                    </span>
+                    <span className='word'>
+                        <em>I</em>mpactful Des<em>i</em>gn So<em>l</em>ution
+                    </span>
+                    <span className='word'>Myst<em>i</em>cal, Marve<em>l</em>ous </span>
+                </motion.div>
                 </div>    
 
-                <motion.div initial={{y:'30vh'}} 
+                <motion.div initial={{y:'30vh'}} className='rotating-circle'
                 animate={{y:0,transition:{...transition,duration:1.6,delay:1}}}>
-                    <ScrollCircle className='circle' stroke='white' width={86}/>
+                    <ScrollCircle className='circle'  stroke='white' width={86}/>
                 </motion.div>
                 
 
             </div>
-        </>
+        </>  
     )
 }
 
