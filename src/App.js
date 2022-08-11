@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom"; 
 import { AnimatePresence } from "framer-motion";
 
 import useFetch from "./fetchData";
 
+import ErrorBoundary from "./components/error-boundary/error-boundary";
 import CustomCursor from "./components/custom-cursor";
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./pages/Home";
-import ProjectPage from "./pages/projectPage";
 import PreLoader from "./components/preloader/preloader";
+import Loader from "./components/loader/loader";
+
+// Lazy loading
+const ProjectPage = lazy( () => import('./pages/projectPage') )
 
 function App() {
   const location = useLocation()
@@ -50,13 +54,16 @@ function App() {
     <div>
       {!touch ? <CustomCursor/> : ''}
       {nav && <Navbar/>}
-      <AnimatePresence  exitBeforeEnter>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<HomePage project={project} work={work} misc={misc} />} />
-          <Route path="/:slug" element={<ProjectPage/>}/>
-        </Routes>
-      </AnimatePresence>
-      
+      <ErrorBoundary>
+        <Suspense fallback={<Loader/>}>
+        <AnimatePresence  exitBeforeEnter>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<HomePage project={project} work={work} misc={misc} />} />
+            <Route path="/:slug" element={<ProjectPage/>}/>
+          </Routes>
+        </AnimatePresence>
+        </Suspense>
+      </ErrorBoundary>   
     </div>
   );
 }

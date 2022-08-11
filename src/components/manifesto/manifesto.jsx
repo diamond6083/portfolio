@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
+import React from 'react';
 import {gsap,Power3} from 'gsap/dist/gsap';
 
 import './manifesto.scss'
@@ -85,4 +86,4 @@ const ManifestoSection = ({manifestoData, manUrl, mottoUrl}) => {
     );
 }
 
-export default ManifestoSection;
+export default React.memo(ManifestoSection);

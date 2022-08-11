@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLayoutEffect, useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {gsap,Power3} from 'gsap/dist/gsap';
@@ -56,4 +57,4 @@ const StorySection = ({story1, story2}) => {
     );
 }
 
-export default StorySection;
+export default React.memo(StorySection);

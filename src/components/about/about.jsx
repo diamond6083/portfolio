@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLayoutEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {gsap,Power3,Power4} from 'gsap/dist/gsap';
@@ -120,4 +121,4 @@ const AboutSection = ({workData}) => {
     );
 }
 
-export default AboutSection;
+export default React.memo(AboutSection);

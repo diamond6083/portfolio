@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLayoutEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import {gsap,Power3} from 'gsap/dist/gsap';
@@ -25,4 +26,4 @@ const Craftsmanship = ({craftsUrl}) => {
     );
 }
 
-export default Craftsmanship;
+export default React.memo(Craftsmanship);
