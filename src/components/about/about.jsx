@@ -96,7 +96,7 @@ const AboutSection = ({workData}) => {
                 id='marquee'
                 style={{color:'#FFF8E2',
                 textAlign:'center',
-                fontFamily:'Roobert-Regular'}}
+                fontFamily:'Plus Jakarta Sans'}}
                 behavior="scroll" direction="left" scrollamount="17"
                 >Believe in the impossible </marquee>
 
