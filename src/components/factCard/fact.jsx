@@ -33,13 +33,13 @@ const FactSection = () => {
         <div className='fact'>
             <div className='fun' ref={ref}>
                 <div className='fun-text'>
-                    <span className='fn'>Wanna</span> <span className='fn'>know</span> <span className='fn'>a </span> 
+                    <span className='fn'>Want</span> <span className='fn'>to</span> <span className='fn'>know a </span> 
                     <span className='fn'>flabbergasting</span> <span className='fn'>fact</span> <span className='fn'>? </span>
                 </div>
             </div>
-            <p ref={ref2}><span className='prompt'>I have a story.</span> <span className='prompt'>It's the kind of story you might read in a novel: AI generates a completely hyper-realistic image using my story as a</span> 
-            <span className='prompt'>prompt. Except it's not just a story. It's as real as the photorealistic image the AI created for me. Yes, you read it right! An AI </span> 
-            <span className='prompt'>generated the above image using my story as it's input!</span>
+            <p ref={ref2}><span className='prompt'>I have a story.</span> <span className='prompt'>An AI generates a completely hyper-realistic image using my story as a</span> 
+            <span className='prompt'>prompt. Except, it's not just a story! It's as real as the photorealistic image the AI created for me. Yes, you read it right! An</span> 
+            <span className='prompt'>AI generated the above image using my story as it's input!</span>
             </p>
         </div>
     );

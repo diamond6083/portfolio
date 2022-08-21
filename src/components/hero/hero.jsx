@@ -54,7 +54,7 @@ const HeroSection = ({heroUrl}) => {
                 <div className="content">
                 <motion.div variants={variants} initial='initial' animate='animate' 
                 className="words">
-                    <span className='word'>Mystical, Marvelous </span>
+                    <span className='word'>Mystical, Marvellous </span>
                     <span className='word special'>
                         Des<em>i</em>gner, Deve<em>l</em>oper, Drea<em>m</em>er</span>
                     <span className='word'>
@@ -63,7 +63,7 @@ const HeroSection = ({heroUrl}) => {
                     <span className='word'>
                         <em>I</em>mpactful Des<em>i</em>gn So<em>l</em>ution
                     </span>
-                    <span className='word'>Myst<em>i</em>cal, Marve<em>l</em>ous </span>
+                    <span className='word'>Myst<em>i</em>cal, Marve<em>l</em>lous </span>
                 </motion.div>
                 </div>    
 
