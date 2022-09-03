@@ -13,15 +13,20 @@ let tl = gsap.timeline({defaults:{ease: Power3.easeOut}})
 
 const Navbar = () => {
 
-    const [navbar, setNavbar] = useState(true)
+    //const [navbar, setNavbar] = useState(true)
     const [click, setClick] = useState(false)
     const [mobile, setMobile] = useState(false) 
-    const hideNav = (e) => {
-        if(e.wheelDeltaY < 0)
-            setNavbar(false)
-        else
-            setNavbar(true)
-    }
+    const [scrollStatus, setScrollStatus] = useState({
+        scrollDirection: true,
+        scrollPos: 0,
+      });
+
+    // const hideNav = (e) => {
+    //     if(e.wheelDeltaY < 0)
+    //         setNavbar(false)
+    //     else
+    //         setNavbar(true)
+    // }
 
     const handleClick = () => {
         tl.from('.links',{opacity:0,duration:0.3})
@@ -29,10 +34,28 @@ const Navbar = () => {
     }
 
     // Hiding nav when scrolling down
+    // useEffect(() => {
+    //     window.addEventListener("wheel", hideNav)
+    //     return () => window.removeEventListener("wheel", hideNav)
+    // }, []);
+
+    function handleScrollDocument() {
+        setScrollStatus((prev) => { // to get 'previous' value of state
+          return {
+            scrollDirection:
+              document.body.getBoundingClientRect().top > prev.scrollPos
+                ? true
+                : false,
+            scrollPos: document.body.getBoundingClientRect().top,
+          };
+        });
+      }
+
     useEffect(() => {
-        window.addEventListener("wheel", hideNav)
-        return () => window.removeEventListener("wheel", hideNav)
-    }, []);
+        window.addEventListener("scroll", handleScrollDocument);
+    
+        return () => window.removeEventListener("scroll", handleScrollDocument);
+      }, []);
 
     // Animating nav on load
     useLayoutEffect(() => {
@@ -42,7 +65,7 @@ const Navbar = () => {
     },[])
 
     return ( 
-       <nav className={navbar ? 'navbar' : 'navbar hidden'} >
+       <nav className={scrollStatus.scrollDirection ? 'navbar' : 'navbar hidden'} >
             <Link to='hero' className='logo'> <Logo width={80}/> </Link>
             <div className={mobile ? 'links active' : 'links'}>
                 <Link onClick={()=>{setMobile(!mobile); setClick(!click)}} to='work' 

@@ -62,7 +62,7 @@ const ContactSection = () => {
                 </div>
                 <div className="follow">
                     <p className="footer-header">Follow me</p>
-                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                    <a href="https://www.instagram.com/flash.6083/" target="_blank">Instagram</a>
                     <a href="https://www.behance.net/" target="_blank">Behance</a>
                     <a href="https://dribbble.com/" target="_blank">Dribbble</a>
                 </div>

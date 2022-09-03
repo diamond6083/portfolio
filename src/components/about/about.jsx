@@ -96,9 +96,11 @@ const AboutSection = ({workData}) => {
                 id='marquee'
                 style={{color:'#FFF8E2',
                 textAlign:'center',
-                fontFamily:'Plus Jakarta Sans'}}
+                fontFamily:'Plus Jakarta Sans',
+                fontWeight: '700',
+                letterSpacing: '0.1em'}}
                 behavior="scroll" direction="left" scrollamount="17"
-                >Believe in the impossible </marquee>
+                >Believe in <em>t</em>he <em>i</em>mpossible </marquee>
 
             <div className='work-motto'>
                 {workData && workData.slice(2).map((motto,index) => (
