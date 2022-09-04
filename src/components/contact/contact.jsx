@@ -50,8 +50,8 @@ const ContactSection = () => {
 
             <p className="conversation">Start a conversation</p>
 
-            <a href="mailto:flashcapade@gmail.com" className="email-link">
-                flashcapde@gmail.com</a>
+            <a href="mailto:support@flashcapade.com" className="email-link">
+                support@flashcapade.com</a>
 
             <div className="footer" ref={ref2}>
                 <div className="navigate">
